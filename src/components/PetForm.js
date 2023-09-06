@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const PetForm = () => {
+const PetForm = ({ pets, postPet }) => {
 
     const [statePet, setStatePet] = useState(   
         {
