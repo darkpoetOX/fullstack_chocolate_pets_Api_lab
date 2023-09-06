@@ -1,4 +1,8 @@
-const Pet = ({ pet }) => {
+const Pet = ({ pet, deletePet }) => {
+
+    const handleDeletePet = () => {  
+        deletePet(pet.id);
+    }
 
     return (
         <>
@@ -6,7 +10,7 @@ const Pet = ({ pet }) => {
             <p>Type: {pet.type}</p>
             <p>Breed: {pet.breed}</p>
             <p>Age: {pet.age}</p>
-            <button> delete </button>
+            <button onClick={handleDeletePet}> delete </button>
             <button> show </button>
             <hr />
         </>

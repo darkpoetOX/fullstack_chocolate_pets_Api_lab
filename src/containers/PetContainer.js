@@ -25,13 +25,24 @@ const PetContainer = () => {
         const savedPet= await response.json();
         setPets([...pets, savedPet])
     }
+
+    const deletePet = async (id) => {
+        // the deletes from database
+        await fetch("http://localhost:8080/pets/" + id, {
+            method: "DELETE",
+            headers: {"Content-Type": "application/json"}
+        })
+        // the below deletes locally
+        const keptPets = pets.filter((pet) => pet.id !== parseInt(id));
+        setPets(keptPets);
+    }
     
 
     return (
         <>
             <h1>Generate A Pet</h1>
             <PetForm pets = {pets} postPet={postPet}/>
-            <PetList pets = {pets} />
+            <PetList pets = {pets} deletePet={deletePet}/>
         </>
     );
  }
