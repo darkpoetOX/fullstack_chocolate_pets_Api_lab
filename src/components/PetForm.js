@@ -66,7 +66,7 @@ const PetForm = ({ postPet }) => {
             />
         
             
-            <button type="submit">OK</button>      
+            <button type="submit">Add Pet</button>      
         </form>
 
     );
